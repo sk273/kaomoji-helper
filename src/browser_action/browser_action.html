@@ -1,17 +1,31 @@
 <!doctype html>
 <style type="text/css">
-	#mainPopup {
-		padding: 10px;
-		height: 200px;
-		width: 400px;
-		font-family: Helvetica, Ubuntu, Arial, sans-serif;
-	}
-	h1 {
-		font-size: 2em;
-	}
+#mainPopup {
+        padding: 10px;
+        height: 200px;
+        width: 400px;
+        font-family: Helvetica, Ubuntu, Arial, sans-serif;
+}
+        h1 {
+                font-size: 2em;
+        }
 </style>
 
-<div id="mainPopup">
-<h1>Kaomaoji</h1>
-<p>To shut this popup down, edit the manifest file and remove the "default popup" key. To edit it, just edit ext/browser_action/browser_action.html. The CSS is there, too.</p>
-</div>
+<head>
+        <meta charset="UTF-8">
+</head>
+
+<body id="mainPopup" ng-csp data-ng-app="popup" ng-controller="MainCtrl">
+
+        <h1>Kaomoji Helper （。・＿・。）ﾉ</h1>
+        <p>Type "%" then the kaomoji name or id</p>
+
+        <p data-ng-repeat="n in kaomojis">
+        {{n.kao}} ID: {{n.id}} NAME: {{n.name}}
+        </p>
+
+        <script src="/js/angular/angular.min.js"></script>
+        <script src="/js/app.js"></script>
+
+
+</body>
