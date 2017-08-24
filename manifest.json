@@ -34,8 +34,8 @@
         "https://*/*"
       ],
       "js": [
-        "js/caret-position.js",
-        "src/inject/inject.js"
+        "src/inject/inject.js",
+        "src/browser_action/resources.js"
       ]
     }
   ]

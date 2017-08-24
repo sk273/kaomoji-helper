@@ -1,5 +1,4 @@
-var SPECIAL_KEY = ';';
-var SPECIAL_KEYCODE = 186;
+
 
 document.addEventListener('keyup', function(e) { 
         if (e.keyCode == SPECIAL_KEYCODE) { // if semi-colon gets pressed... 
@@ -17,17 +16,19 @@ document.addEventListener('keyup', function(e) {
 
                 if (left >= 0 && right >= 0) {
 
-                        var kaomoji = "KAOMOJI";
+                        var textBetween = text.substring(left + 1, right);
 
-                        if (active.value !== undefined) {
-                                active.value = text.substring(0, left) + kaomoji + text.substring(right + 1);
+                        if (textBetween in kaomojiMap) {
+                                var kaomoji = kaomojiMap[textBetween];
+                                if (active.value !== undefined) {
+                                        active.value = text.substring(0, left) + kaomoji + text.substring(right + 1);
+                                }
+                                else if (active.textContent !== undefined) {
+                                        active.textContent = text.substring(0, left) + kaomoji + text.substring(right + 1);
+                                }
+
+                                setCaretCharacterOffsetWithin(active, left + kaomoji.length);
                         }
-                        else if (active.textContent !== undefined) {
-                                active.textContent = text.substring(0, left) + kaomoji + text.substring(right + 1);
-                        }
-
-                        setCaretCharacterOffsetWithin(active, left + kaomoji.length);
-
                 }              
         }
 });
