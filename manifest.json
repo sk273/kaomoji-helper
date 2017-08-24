@@ -34,6 +34,7 @@
         "https://*/*"
       ],
       "js": [
+        "js/caret-position.js",
         "src/inject/inject.js"
       ]
     }
