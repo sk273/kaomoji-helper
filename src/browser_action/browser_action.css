@@ -1,0 +1,15 @@
+#mainPopup {
+        padding: 10px;
+        height: 200px;
+        width: 300px;
+        font-family: Ubuntu, Helvetica, Arial, sans-serif;
+}
+h1 {
+        font-size: 1.5em;
+}
+
+td, th {
+        padding: 10px;
+}
+
+tr:nth-child(odd){background-color: #f2f2f2}

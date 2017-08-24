@@ -1,16 +1,5 @@
 <!doctype html>
-<style type="text/css">
-#mainPopup {
-        padding: 10px;
-        height: 200px;
-        width: 400px;
-        font-family: Helvetica, Ubuntu, Arial, sans-serif;
-}
-        h1 {
-                font-size: 2em;
-        }
-</style>
-
+<link rel = "stylesheet" type = "text/css" href = "browser_action.css" />
 <head>
         <meta charset="UTF-8">
 </head>
@@ -18,14 +7,18 @@
 <body id="mainPopup" ng-csp data-ng-app="popup" ng-controller="MainCtrl">
 
         <h1>Kaomoji Helper （。・＿・。）ﾉ</h1>
-        <p>Type the NAME or number in between two semicolons (ex. ;shrug;)</p>
+        <p>Type the name or number in between two semicolons (ex. ;shrug;)</p>
 
-        <div data-ng-repeat="n in kaomojis">
-                {{n.id}}. {{n.kao}} NAME: {{n.name}}
-        </div>
+        <table>
+                <tr data-ng-repeat="n in kaomojis">
+                        <td>{{n.id}}.</td>
+                        <td>{{n.kao}} </td> 
+                        <td>{{n.name}}</td>
+                </tr>
+        </table>
 
         <script src="/js/angular/angular.min.js"></script>
-        
+
         <script src="/js/app.js"></script>
 
 
