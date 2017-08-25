@@ -3,15 +3,11 @@
   "version": "0.0.1",
   "manifest_version": 2,
   "description": "A chrome extension for easy kaomoji typing.",
-  "homepage_url": "http://extensionizr.com",
+  "homepage_url": "https://github.com/sk273/kaomoji-helper",
   "icons": {
     "48": "icons/kaomoji48.png"
   },
   "default_locale": "en",
-  "background": {
-    "page": "src/bg/background.html",
-    "persistent": true
-  },
   "options_page": "src/options/index.html",
   "browser_action": {
     "default_icon": "icons/kaomoji48.png",
@@ -19,14 +15,6 @@
     "default_popup": "src/browser_action/browser_action.html"
   },
   "content_scripts": [
-    {
-      "matches": [
-        "https://*/*"
-      ],
-      "css": [
-        "src/inject/inject.css"
-      ]
-    },
     {
       "matches": [
         "https://*/*"
