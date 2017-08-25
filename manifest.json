@@ -7,11 +7,9 @@
   "icons": {
     "48": "icons/kaomoji48.png"
   },
-  "default_locale": "en",
-  "options_page": "src/options/index.html",
   "browser_action": {
     "default_icon": "icons/kaomoji48.png",
-    "default_title": "browser action demo",
+    "default_title": "Kaomoji list",
     "default_popup": "src/browser_action/browser_action.html"
   },
   "content_scripts": [
@@ -21,7 +19,7 @@
       ],
       "js": [
         "src/inject/inject.js",
-        "src/browser_action/resources.js"
+        "js/kaomoji_resources.js"
       ]
     }
   ]
