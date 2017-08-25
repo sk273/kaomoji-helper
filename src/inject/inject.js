@@ -1,33 +1,30 @@
-
-
 document.addEventListener('keyup', function(e) { 
-        if (e.keyCode == SPECIAL_KEYCODE) { // if semi-colon gets pressed... 
+        if (e.keyCode == SPECIAL_KEYCODE) { // When a semicolon gets keyup'd
                 var active = document.activeElement;
                 var text = extractValue(active);
                 
                 var caretPos = getCaretCharacterOffsetWithin(active) - 1;
                 var right = caretPos; // 
 
-                var left = findSpecial(-1, right - 1, text);
-                if (left === -1) {
+                var left = findSpecial(-1, right - 1, text); // prioritize looking for a matching pair to the left
+                if (left === -1) { // if nothing is found on the left, look at the right
                         left = right;
                         right = findSpecial(1, left + 1, text);
                 }
 
                 if (left >= 0 && right >= 0) {
-
-                        var textBetween = text.substring(left + 1, right);
+                        // get the value between the special characters
+                        var textBetween = text.substring(left + 1, right); 
 
                         if (textBetween in kaomojiMap) {
                                 var kaomoji = kaomojiMap[textBetween];
                                 if (active.value !== undefined) {
                                         active.value = text.substring(0, left) + kaomoji + text.substring(right + 1);
-                                }
-                                else if (active.textContent !== undefined) {
+                                } else if (active.textContent !== undefined) {
                                         active.textContent = text.substring(0, left) + kaomoji + text.substring(right + 1);
                                 }
-
-                                setCaretCharacterOffsetWithin(active, left + kaomoji.length);
+                                // place caret right at the end of the newly inserted kaomoji
+                                setCaretCharacterOffsetWithin(active, left + kaomoji.length); 
                         }
                 }              
         }
@@ -74,6 +71,7 @@ var setCaretCharacterOffsetWithin = function(element, offset) {
         }
 };
 
+// looks for the special character within 'text', starting at 'start', and looking left or right depending on the value of 'direction
 var findSpecial = function(direction, start, text) {
         while (start < text.length && start >= 0) {
                 if (text.charAt(start) === SPECIAL_KEY) return start;
@@ -83,8 +81,8 @@ var findSpecial = function(direction, start, text) {
         return -1;
 };
 
+// gets the text within the active element
 var extractValue = function(active) {
-        if (active.value !== undefined) return active.value;
-        return active.textContent;
+        return active.value !== undefined ? active.value : active.textContent;
 };
 
