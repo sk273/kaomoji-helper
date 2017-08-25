@@ -4,7 +4,7 @@ A lightweight solution to typing kaomoji painlessly. Written in HTML and javscri
 
 ## Getting Started
 
-Simply download the source code and load the unpacked extension in Chrome. Using the extension is simple -- just type the kaomoji's name or number in between two semicolons and the extension will turn it into a kaomoji.
+Simply download the source code and load the unpacked extension in Chrome. Using the extension is simple -- just type the kaomoji's name or number in between two semicolons and the extension will turn it into a kaomoji. For instance, typing ";shrug;" will give you "¯\\_(ツ)_/¯"
 
 ## Known Issues
 
